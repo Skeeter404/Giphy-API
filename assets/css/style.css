@@ -1,0 +1,53 @@
+body {
+    background-image: url("../images/connectWork.png");
+}
+
+h1 {
+    color: white;
+    text-align: center;
+    font-family: 'Josefin Sans', sans-serif;
+    margin-top: 25px;
+    font-size: 60px;
+}
+
+.instructions {
+    color: white;
+    text-align: center;
+    font-family: 'Josefin Sans', sans-serif;
+    font-size: 20px;
+    margin: 5px;
+}
+
+#buttons {
+    margin: 5px;
+}
+
+.career-btn {
+    margin: 6px;
+    font-family: 'Josefin Sans', sans-serif;
+    font-size: 20px;
+    background-color: teal;
+    border-color: teal;
+    border-radius: 4px;
+}
+
+#search {
+    margin: 15px;
+}
+
+#add-career {
+    margin-top: 5px;
+    font-family: 'Josefin Sans', sans-serif;
+    font-size: 20px;
+    background-color: teal;
+    border-color: teal;
+    border-radius: 4px;
+}
+
+label {
+    color: white;
+}
+
+.rating {
+    color: white;
+}

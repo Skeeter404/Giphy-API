@@ -1,0 +1,86 @@
+$(document).ready(function() {
+
+var careers=["Astronaut", "Police", "Biologist", "Information Technology"];
+
+
+//function to render buttons from careers variable
+function renderButtons() {
+
+    $("#buttons").empty();
+
+    for (var i = 0; i < careers.length; i++) {
+
+      var a = $("<button>");
+
+      a.addClass("career-btn");
+      
+      a.attr("data-name", careers[i]);
+      
+      a.text(careers[i]);
+      
+      $("#buttons").append(a);
+    }
+  };
+
+  //function to add buttons upon user input and search
+  $("#add-career").on("click", function(event) {
+    event.preventDefault();
+
+    var career = $("#career-input").val().trim();
+
+    careers.push(career);
+
+    renderButtons();
+  });
+
+  //function to display info in gifContainer upon click of buttons
+  function displayGifs(){
+
+    var career = $(this).attr("data-name");
+    var queryURL = "https://api.giphy.com/v1/gifs/search?q=" + career + "&api_key=nX1sYpsvb1rx9f1bl79H3OtQMogfg9HC&limit=10";
+
+    //ajax call
+    $.ajax({
+        url:queryURL,
+        method: "GET"
+    }).then(function(response){
+
+        var results = response.data;
+
+        //looping through each gif result
+        for(var i = 0; i < results.length; i++){
+
+            //if statement to only display appropriate gifs
+            if(results[i].rating !== "r" && results[i].rating !== "pg-13"){
+
+                //creating div to hold each result
+                var gifDiv = $("<div class='item'>");
+
+                var rating = results[i].rating;
+  
+                var p = $("<p>").text("Rating: " + rating);
+
+                p.addClass("rating");
+  
+                var careerImage = $("<img>");
+
+                careerImage.attr("src", results[i].images.fixed_height.url);
+
+                //append rating and image to new div
+                gifDiv.append(p);
+                gifDiv.append(careerImage);
+  
+                //prepend the whole gifDiv to the container where the gifs are held
+                $("#gif-container").prepend(gifDiv);
+            }
+        }
+    });
+  };
+
+  //recognize click on any button on the page
+  $(document).on("click", ".career-btn", displayGifs);
+
+  //calling function to render initial buttons.
+  renderButtons();
+
+});

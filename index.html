@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Career Gifs</title>
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css?family=Josefin+Sans" rel="stylesheet">
+    <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+    <div class="row">
+        <div class="col-sm-3"></div>
+
+        <div class="col-sm-6">
+            <h1>Career Gifs</h1>
+        </div>
+
+        <div class="col-sm-3"></div>
+    </div>
+
+    <div class="row">
+        <div class="col-sm-1"></div>
+
+        <div class="col-sm-10">
+            <p class="instructions">Add buttons to search for gifs related to different careers!</p>
+            <p class="instructions">Click on some of the buttons that are already displayed to see how it works!</p>
+        </div>
+
+        <div class="col-sm-1"></div>
+    </div>
+
+    <div class="row">
+        <div class="col-sm-1"></div>
+
+        <div class="col-sm-10" id="buttons">
+
+        </div>
+
+        <div class="col-sm-1"></div>
+    </div>
+
+    <div class="row">
+        <div class="col-sm-12" id="search">
+                <form id="search-form">
+                        <label for="career-input">Find a career!</label>
+                        <input type="text" id="career-input">
+                        <br>
+                    <input id="add-career" type="submit" value="Add a Career!">
+                </form>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-sm-12" id="gif-container">
+
+        </div>
+    </div>
+    
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script type="text/javascript" src="assets/javascript/giphy.js"></script>
+</body>
+</html>
