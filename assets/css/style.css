@@ -57,4 +57,5 @@ label {
     margin: 8px;
     border: solid teal;
     background-color: teal;
+    border-radius: 3px;
 }
