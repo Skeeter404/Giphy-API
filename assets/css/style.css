@@ -51,3 +51,10 @@ label {
 .rating {
     color: white;
 }
+
+.item {
+    display: inline-block;
+    margin: 8px;
+    border: solid teal;
+    background-color: teal;
+}

@@ -1,7 +1,7 @@
 $(document).ready(function() {
 
 var careers=["Astronaut", "Police", "Biologist", "Information Technology"];
-
+ 
 
 //function to render buttons from careers variable
 function renderButtons() {
@@ -64,7 +64,11 @@ function renderButtons() {
   
                 var careerImage = $("<img>");
 
-                careerImage.attr("src", results[i].images.fixed_height.url);
+                careerImage.attr("src", results[i].images.fixed_height_still.url);
+                careerImage.attr("data-still", results[i].images.fixed_height_still.url);
+                careerImage.attr("data-animate", results[i].images.fixed_height.url);
+                careerImage.attr("data-state", "still");
+                careerImage.addClass("gif");
 
                 //append rating and image to new div
                 gifDiv.append(p);
@@ -76,6 +80,24 @@ function renderButtons() {
         }
     });
   };
+
+  // If the clicked image's state is still, update its src attribute to what its data-animate value is.
+  function animateGifs() {
+    
+    var state = $(this).attr("data-state");
+    console.log(state);
+    
+    if (state === "still") {
+      $(this).attr("src", $(this).attr("data-animate"));
+      $(this).attr("data-state", "animate");
+    } else {
+      $(this).attr("src", $(this).attr("data-still"));
+      $(this).attr("data-state", "still");
+    }
+  };
+
+  //recognize click on any gif on the page
+  $(document).on("click", ".gif", animateGifs);
 
   //recognize click on any button on the page
   $(document).on("click", ".career-btn", displayGifs);
